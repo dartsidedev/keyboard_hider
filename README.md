@@ -1,3 +1,30 @@
+# `keyboard_hider`
+
+> A tiny Flutter package to help you hide the keyboard.
+
+
+
+
+
+## Important links
+
+source code, issues, pacjage, docs, stackoverflow, gesture detector, focusscope
+
+
+## Motivation
+
+* i visited for the "hide the keeb with flutter" probably at every project I worked on, and remembering the details of that functions is annoying
+* I submitted my own answer, with a widget, and I've grown to like this approach and missed it in some projects. I added now in a simple package
+
+## Usage
+
+explain...
+link to example
+gif with tap visible
+
+explain helper functions
+
+
 <!-- 
 This README describes the package. If you publish this package to pub.dev,
 this README's contents appear on the landing page for your package.
