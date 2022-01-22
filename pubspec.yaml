@@ -1,7 +1,7 @@
 name: keyboard_hider
-description: A tiny Flutter package to help you hide the keyboard.
-version: 0.1.0
-homepage: https://www.github.com/dartsidedev/keyboard_hider
+description: This tiny Flutter package help you hide the keyboard. With convenient helper methods and the KeyboardHider widget.
+version: 0.2.0
+homepage: https://www.github.com/dartsidedev
 repository: https://www.github.com/dartsidedev/keyboard_hider
 issue_tracker: https://www.github.com/dartsidedev/keyboard_hider/issues
 environment:

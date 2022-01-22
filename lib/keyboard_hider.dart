@@ -15,10 +15,14 @@ import 'package:flutter/widgets.dart';
 enum HideMode {
   /// Uses the context's [FocusScopeNode]'s (by calling the [FocusScope.of])
   /// unfocus method.
+  ///
+  /// It causes the [KeyboardHider] widget to call `unfocus` function on tap.
   unfocus,
 
   /// Uses the textInput channel used by the Flutter system, and invokes
   /// 'TextInput.hide' on it.
+  ///
+  /// It causes the [KeyboardHider] widget to call [hideTextInput] on tap.
   hideTextInput,
 }
 
@@ -57,12 +61,22 @@ class KeyboardHider extends StatelessWidget {
 }
 
 /// Hide keyboard by un-focusing the current context's [FocusScopeNode].
+///
+/// Used by the [KeyboardHider] widget if the hide mode is set to
+/// [HideMode.unfocus] (default behavior).
 void unfocus(BuildContext context) => FocusScope.of(context).unfocus();
 
 /// Hide keyboard by invoking the "TextInput.hide" method on
 /// [SystemChannels.textInput].
+///
+/// Used by the [KeyboardHider] widget if the hide mode is set to
+/// [HideMode.hideTextInput].
+///
+/// This function hides the keyboard, but it will not unfocus the
+/// focus scope node, so if a text field was in focus, it will stay highlighted.
 Future<void> hideTextInput() => textInput.invokeMethod('TextInput.hide');
 
+// The  following getters, setters are only needed for unit testing.
 MethodChannel? _textInput;
 
 @visibleForTesting
