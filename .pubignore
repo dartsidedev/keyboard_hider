@@ -1,0 +1,5 @@
+docs_assets/example_app.gif
+build
+.idea
+coverage
+keyboard_hider.iml
