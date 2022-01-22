@@ -21,18 +21,20 @@ If you enjoy using this package, **a thumbs up on [pub.dev](https://pub.dev/pack
 
 ## Motivation
 
-While interacting our users, we realized that not every user knows their keyboard very well and that they expect the keyboard to be hidden when the click outside a text field.
-We decided to give our users to give the option to hide their keyboard for forms when the user clicked outside a text field.
+While interacting with our users, we realized that not every user knows their keyboard very well and that they expect the keyboard to be hidden when the click outside a text field.
+We decided to give our users the option to hide their keyboard for forms when they clicked outside a text field.
 
 I searched how to do that, and I found [this question](https://stackoverflow.com/questions/44991968/how-can-i-dismiss-the-on-screen-keyboard) on Stack Overflow.
 I wasn't really satisfied with adding repeated code everywhere, as remembering how to configure the `GestureDetector`, and what is the correct way to `unfocus` (hide the keyboard) is a little annoying.
+
 You can see [my answer on Stack Overflow](https://stackoverflow.com/a/55727378/4541492) from 2019: I decided to wrap this functionality in a convenient Flutter widget that simplifies hiding the keyboard whenever the user taps on the screen outside a text field (similar to how keyboard hiding works on the web).
 
 Since then, I worked on a couple of projects, and I've seen that this pattern is discussed again and again, so now I decided to publish this package so that I (and everyone else) can quickly and simply add this functionality to our Flutter apps.
 
 ## Usage
 
-Wrap the widget that should detect touches and upon touch, it should hide the keyboard if visible.
+Wrap your widget that should detect touches with a [`KeyboardHider` widget](https://pub.dev/documentation/keyboard_hider/latest/keyboard_hider/KeyboardHider-class.html) and upon touch, it should hide the keyboard if visible.
+
 The widget doesn't interfere with text fields, so your users can seamlessly switch and jump between text fields, even if the text fields are wrapped in a `KeyboardHider` widget.
 
 ```dart
@@ -51,11 +53,11 @@ class YourWidget extends StatelessWidget {
 
 The package also includes two helper functions that simplified hiding your keyboard.
 
-The `unfocus(BuildContext context)` function takes the context and dismisses the keyboard by un-focusing the context's `FocusScopeNode`.
+The [`unfocus(BuildContext context)`](https://pub.dev/documentation/keyboard_hider/latest/keyboard_hider/unfocus.html) function takes the context and dismisses the keyboard by un-focusing the context's `FocusScopeNode`.
 
-The `hideTextInput()` function invokes the `TextInput.hide` method on the `SystemChannels.textInput` method channel.
+The [`hideTextInput()` function](https://pub.dev/documentation/keyboard_hider/latest/keyboard_hider/hideTextInput.html) invokes the `TextInput.hide` method on the `SystemChannels.textInput` method channel.
 
-If needed, you can also pass a `HideMode` value to the `KeyboardHider`.
+If needed, you can also pass a [`HideMode`](https://pub.dev/documentation/keyboard_hider/latest/keyboard_hider/HideMode.html) value to the `KeyboardHider`.
 By default, the `KeyboardHider` widget uses the `unfocus` approach, but you can change that to `hideTextInput`:
 
 ```dart
